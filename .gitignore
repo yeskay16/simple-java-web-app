@@ -1,0 +1,4 @@
+sources.txt
+out/
+# Intellij IDEA files
+.idea/
