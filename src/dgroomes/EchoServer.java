@@ -13,14 +13,22 @@ public class EchoServer extends NanoHTTPD {
 
     @Override
     public Response serve(IHTTPSession session) {
-        var msg = "<html><body><h1>Hello from a Java HTTP server!</h1>\n";
+        var html = """
+                <html>
+                <body>
+                    <h1>Hello from a Java HTTP server!</h1>
+                """;
         var params = session.getParms();
         var echo = params.get("echo");
         if (echo == null) {
-            msg += "<form action='?' method='get'>\n  <p>Say something: <input type='text' name='echo'></p>\n</form>\n";
+            html += """
+                    <form action='?' method='get'>
+                        <p>Say something: <input type='text' name='echo'></p>
+                    </form>
+                    """;
         } else {
-            msg += String.format("<p>You said: %s</p>", echo);
+            html += "<p>You said: %s</p>".formatted(echo);
         }
-        return newFixedLengthResponse(msg + "</body></html>\n");
+        return newFixedLengthResponse(html + "</body></html>\n");
     }
 }

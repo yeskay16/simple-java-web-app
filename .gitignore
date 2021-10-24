@@ -1,4 +1,8 @@
 sources.txt
 out/
+
 # Intellij IDEA files
 .idea/
+*.iml
+
+.DS_Store
