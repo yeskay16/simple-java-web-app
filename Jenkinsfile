@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'ubuntu_local' }
 
     environment {
         BUILD_SCRIPT = './build.sh'
