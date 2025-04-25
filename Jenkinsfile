@@ -9,12 +9,6 @@ pipeline {
     }
 
     stages {
-
-        stage('Clean Before Build') {
-            steps {
-                cleanWs()
-            }
-        }
         stage('Build') {
             steps {
                 echo '🔨 Running build script...'
