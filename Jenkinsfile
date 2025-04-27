@@ -36,6 +36,7 @@ pipeline {
             steps {
                 echo '🚀 Deploying the app...'
                 sh "${RUN_SCRIPT}"
+                sleep 60
             }
         }
 
