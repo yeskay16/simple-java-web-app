@@ -35,7 +35,7 @@ pipeline {
                 }
             }
             steps {
-                echo '🚀 Deploying the app...'
+                echo '🚀 Deploying the app....'
                 sh "${RUN_SCRIPT}"
             }
         }
