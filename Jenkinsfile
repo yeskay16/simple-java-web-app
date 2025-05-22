@@ -19,7 +19,7 @@ pipeline {
 
         stage('Validate Build Output') {
             steps {
-                echo '🔍 Checking for output folder....'
+                echo '🔍 Checking for output folder.....'
                 script {
                     if (!fileExists("${OUTPUT_FOLDER}")) {
                         error("❌ Output folder '${OUTPUT_FOLDER}' not found. Failing the build.")
