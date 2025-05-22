@@ -14,6 +14,7 @@ pipeline {
             steps {
                 echo '🔨 Running build script...'
                 sh "${BUILD_SCRIPT}"
+                sleep 60
             }
         }
 
