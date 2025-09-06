@@ -1,0 +1,37 @@
+pipeline {
+    agent { label 'ubuntu_local' }
+    // agent any
+    environment {
+        BUILD_SCRIPT = './build.sh'
+        RUN_SCRIPT = './run.sh'
+        OUTPUT_FOLDER = 'out'
+        DEPLOY_URL = 'http://localhost:8080'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                buildApp("${BUILD_SCRIPT}")
+            }
+        }
+        stage('Validate Build Output') {
+            steps {
+                validateBuildOutput("${OUTPUT_FOLDER}")
+            }
+        }
+        stage('Deploy') {
+            steps {
+                deployApp("${RUN_SCRIPT}", "${OUTPUT_FOLDER}")
+            }
+        }
+        stage('Validate Deployment') {
+            steps {
+                validateDeployment("${DEPLOY_URL}")
+            }
+        }
+    }
+    post {
+        always {
+            echo '🧹 Pipeline execution completed.'
+        }
+    }
+}
