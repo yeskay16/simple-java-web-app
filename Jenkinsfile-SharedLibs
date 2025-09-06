@@ -1,3 +1,5 @@
+@Library('PipelineLibs') _
+
 pipeline {
     agent { label 'ubuntu_local' }
     // agent any
