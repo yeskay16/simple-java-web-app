@@ -16,7 +16,7 @@ public class EchoServer extends NanoHTTPD {
         var html = """
                 <html>
                 <body>
-                    <h1>Hello from a Java HTTP server!</h1>
+                    <h1> This is a simple web app!</h1>
                 """;
         var params = session.getParms();
         var echo = params.get("echo");
